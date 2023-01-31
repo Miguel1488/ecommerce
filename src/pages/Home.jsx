@@ -8,7 +8,7 @@ import { filterProductsCategoryThunk, filterProductsTitleThunk, getProductsThunk
 const Home = () => {
 
     const dispatch = useDispatch();
-    const productsList = useSelector(state => state.products);
+    const productsList = useSelector((state) => state.products);
     const [categories, setCategories] = useState([]);
     const [productsSearch, setProductsSearch] = useState("");
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Home = () => {
             .then(res => setCategories(res.data));
     }, [])
 
-    console.log(categories);
+    console.log(productsList);
 
     return (
         <div>
@@ -33,8 +33,8 @@ const Home = () => {
                     value={productsSearch}
                     onChange={e => setProductsSearch(e.target.value)}
                 />
-                <Button onClick={() => dispatch(filterProductsTitleThunk())} 
-                variant="outline-secondary"
+                <Button onClick={() => dispatch(filterProductsTitleThunk())}
+                    variant="outline-secondary"
                     id="button-addon2">
                     Button
                 </Button>
@@ -50,17 +50,17 @@ const Home = () => {
             }
 
             <ul>
-                {/* {
-                    productsList.map(products => (
+                {
+                    productsList.map((products) => (
                         <li key={products.id} onClick={() => navigate(`products/${products.id}`)}>
                             {products.title}
                             <br />
                             <img src={products.images[0].url} alt="procducts" />
 
                         </li>
-                    )) */}
+                    ))}
 
-                }
+
             </ul>
         </div>
     );
