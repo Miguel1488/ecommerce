@@ -8,7 +8,7 @@ export default configureStore({
     reducer: {
         isLoading: isLoadingSlice,
         products: productsSlice,
-purcharses: purchasesSlice
+        purcharses: purchasesSlice
 
     }
 })

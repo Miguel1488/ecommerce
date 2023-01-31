@@ -9,8 +9,8 @@ import AppNavbar from './components/AppNavbar'
 import LoadingScreen from './components/LoadingScreen'
 
 
+
 function App() {
-  const [count, setCount] = useState(0)
   const isLoading = useSelector(state => state.isLoading);
 
   return (
@@ -18,6 +18,8 @@ function App() {
     <HashRouter>
       {isLoading && <LoadingScreen />}
       <AppNavbar />
+
+      <Container className="my-5">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products/:id" element={<Product />} />
@@ -28,10 +30,12 @@ function App() {
           <Route path="/purchases" element={<Purchases />} />
         </Route>
       </Routes>
+      </Container>
     </HashRouter>
   )
 }
 import { useSelector } from 'react-redux'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import { Container } from 'react-bootstrap'
 
 export default App
