@@ -9,7 +9,6 @@ import AppNavbar from './components/AppNavbar'
 import LoadingScreen from './components/LoadingScreen'
 
 
-
 function App() {
   const [count, setCount] = useState(0)
   const isLoading = useSelector(state => state.isLoading);
@@ -17,17 +16,22 @@ function App() {
   return (
 
     <HashRouter>
-         {isLoading && <LoadingScreen />}
+      {isLoading && <LoadingScreen />}
       <AppNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products/:id" element={<Product />} />
-        <Route path="/purchases" element={<Purchases />} />
+
         <Route path="/login" element={<Login />} />
+
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/purchases" element={<Purchases />} />
+        </Route>
       </Routes>
     </HashRouter>
   )
 }
 import { useSelector } from 'react-redux'
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 export default App

@@ -1,8 +1,15 @@
 
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AppNavbar = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.setItem("token", "");
+    navigate("/login");
+  };
+
   return (
     <Navbar expand="lg" variant="dark" bg="primary">
       <Container>
@@ -13,7 +20,7 @@ const AppNavbar = () => {
             <Nav.Link as={Link} to="/login">Login</Nav.Link>
             <Nav.Link as={Link} to="/Purchases">Purchases</Nav.Link>
             <Nav.Link>Cart</Nav.Link>
-
+            <Nav.Link onClick={logout}>Log out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
