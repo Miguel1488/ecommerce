@@ -23,8 +23,8 @@ export const getProductsThunk = () => dispatch => {
 
 export const filterProductsCategoryThunk = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.get(`https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryid=${id}`)
-        .then(() => dispatch(setProducts(res.data)))
+    return axios.get(`https://e-commerce-api-v2.academlo.tech/api/v1/products/?categoryId=${id}`)
+        .then(res => dispatch(setProducts(res.data)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
