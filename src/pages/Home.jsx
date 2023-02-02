@@ -11,6 +11,7 @@ const Home = () => {
     const productsList = useSelector(state => state.products);
     const [categories, setCategories] = useState([]);
     const [productsSearch, setProductsSearch] = useState("");
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const Home = () => {
           onChange={e =>setProductsSearch(e.target.value)}
         />
         <Button 
-        onClick={() => alert(productsSearch)} 
+        onClick={() => dispatch(filterProductsTitleThunk(productsSearch))} 
         variant="outline-secondary" 
         id="button-addon2">
           Button
