@@ -21,6 +21,18 @@ export const getcarsThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+
+export const addCartThunk = (favorite) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios
+      .post("https://e-commerce-api-v2.academlo.tech/api/v1/cart", favorite, getConfig())
+      .then((res) => dispatch(getcarsThunk())) 
+      .finally(() => dispatch(setIsLoading(false)));
+  };
+
+
+
+
 export const {setCart} = cartSlice.actions;
 
 export default cartSlice.reducer;

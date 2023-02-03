@@ -20,7 +20,7 @@ console.log(purchases)
             <h1>hello</h1>
             <ul>
                 {purchases.map(purchases =>(
-                    <li>{purchases.products.id}</li>
+                    <li>{purchases.products?.id}</li>
                 ))}
             </ul>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Offcanvas } from 'react-bootstrap';
+import { Button, Card, Col, Offcanvas, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { getcarsThunk } from '../store/slices/cart.slice';
 
@@ -12,18 +12,41 @@ const Cart = ({ show, handleClose }) => {
     }, [])
 
 
+
     return (
-        <div>
-            <Offcanvas placement='end' show={show} onHide={handleClose}>
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Carrito de compras</Offcanvas.Title>
+        <>
+            <Offcanvas placement="end" show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton style={{
+                    background: '#233240',
+                    color: 'white'
+                }}>
+                    <Offcanvas.Title>
+                        Welcome to your shopping cart </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
+                    {carti.map(product => (
+                        <div key={product.id} className='card_push'>
+                            <Row>
+                                <Col>
+                                    <img src={product.product?.images?.[0].url} alt="" className="img-fluid" />
+                                </Col>
+                                <Col>
+                                    <p>{product.product?.title}</p>
+                                    <hr />
+                                    <p>Price</p>
+                                    <p>{product.product?.price} $</p>
+                                </Col>
+                            </Row>
+                        </div>
+                    ))}
                 </Offcanvas.Body>
+                <Button onClick={() => { dispatch(purchaseCartThunk()), dispatch(getcart_productThunk()) }}
+                    style={{ height: '9rem' }}>
+                    Buy cart product <i className="bi bi-cart3"></i>
+                </Button>
             </Offcanvas>
-        </div>
+        </>
+
 
     );
 };

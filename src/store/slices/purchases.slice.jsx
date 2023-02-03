@@ -22,6 +22,18 @@ export const getPurchasesThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const purchaseCartThunk = () => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios
+        .post(
+            "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
+            {},
+            getConfig()
+        )
+        .then((res) => dispatch(getPurchasesThunk())) // dispatch(setCart([]))
+        .finally(() => dispatch(setIsLoading(false)));
+};
+
 
 
 export const { setPurchases } = purchasesSlice.actions;
