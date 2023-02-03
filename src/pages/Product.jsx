@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { filterProductsCategoryThunk } from '../store/slices/products.slice';
 
 
@@ -12,15 +12,17 @@ const Products = () => {
     const productsList = useSelector(state => state.products);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         axios.get(`https://e-commerce-api-v2.academlo.tech/api/v1/products/${id}/`)
             .then(res => {
                 setProducts(res.data)
-                dispatch(filterProductsCategoryThunk(res.data.category.id))    
-                
+                dispatch(filterProductsCategoryThunk(res.data.category.id))
+
             });
-    }, [])
+    }, [ id ])
 
     console.log(products);
 
@@ -33,17 +35,20 @@ const Products = () => {
             <p>${products.price}</p>
 
 
-{
-    productsList.map(productsItem =>(
-        <li key={productsItem.id}>
-            {productsItem.title}
-            {productsItem.brand}
-            <img src={productsItem.images?.[0].url} alt="" />
-            ${productsItem.price}
-            </li>
-            
-    ))
-}
+            {
+                productsList.map(productsItem => (
+                    <li 
+                    key={productsItem.id}
+                        onClick={() => navigate(`/products/${productsItem.id}`)}
+                        >
+                        {productsItem.title}
+                        {productsItem.brand}
+                        <img src={productsItem.images?.[0].url} alt="" />
+                        ${productsItem.price}
+                    </li>
+
+                ))
+            }
 
         </div>
     );
