@@ -25,10 +25,17 @@ console.log(purchases)
 
     return (
         <div>
-            <h1>hello</h1>
+            <h1>My Purchases</h1>
             <ul>
+                
                 {purchases.map(purchases =>(
-                    <li>{purchases.products?.id}</li>
+                    <li key={purchases.id}>
+                        {purchases.product.title}
+                    <img className="d-block w-100"
+                    src={purchases.product.images[0].url}
+                    alt="First slide"/>
+                    {purchases.product.price}
+                    </li>
                 ))}
             </ul>
         </div>
