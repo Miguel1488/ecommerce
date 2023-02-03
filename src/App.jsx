@@ -18,18 +18,18 @@ function App() {
     <HashRouter>
       {isLoading && <LoadingScreen />}
       <AppNavbar />
-      
+
       <Container className="my-5">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="products/:id" element={<Product />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<Product />} />
 
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/purchases" element={<Purchases />} />
-        </Route>
-      </Routes>
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/purchases" element={<Purchases />} />
+          </Route>
+        </Routes>
       </Container>
     </HashRouter>
   )
