@@ -8,7 +8,7 @@ const ProtectedRoutes = () => {
   if (token) {
     return <Outlet />;
   } else {
-    return <Navigate to="/login" />;
+    return <Navigate to='/login' />;
   } // Aquí le debemos decir la ruta a la que queremos llevar
 }; // al usuario si no está autenticado
 
