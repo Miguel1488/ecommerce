@@ -78,6 +78,7 @@ const Products = () => {
             <h1>{products.title}</h1>
             <p>{products.lead}</p>
             <p style={{textAlign: 'justify'}}>{products.description}</p>
+            <p>${products.price}</p>
           </Col>
   
   
@@ -102,8 +103,8 @@ const Products = () => {
                 <Card.Text>
                   {productsOne.price} $
                 </Card.Text>
-                <Button variant="primary"
-                  onClick={() => navigate(`/products/${productsOne.id}`)}><i className="bi bi-cart3"></i></Button>
+                <Button variant="primary" onClick={() => navigate(`/products/${productsOne.id}`)}><i className="bi bi-cart3"></i>Select</Button>{' '}
+               
               </Card.Body>
             </Card>
           ))}
