@@ -91,6 +91,7 @@ const Home = () => {
                                     <Card.Body>
                                         <Card.Title>{products.title}</Card.Title>
                                         <Card.Text>{products.brand}</Card.Text>
+                                        <Card.Text>{products.description}</Card.Text>
                                         <Card.Text>
                                             Price: ${products.price}
                                         </Card.Text>
