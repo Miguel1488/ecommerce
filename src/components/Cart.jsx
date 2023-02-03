@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Offcanvas } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getcarsThunk } from '../store/slices/cart.slice';
 
-const Cart = ({show, handleClose}) => {
-const dispatch = useDispatch();
 
-// dispatch(geCartitesThunk());
+const Cart = ({ show, handleClose }) => {
+    const carti = useSelector(state => state.cart)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getcarsThunk())
+    }, [])
+
 
     return (
         <div>
@@ -19,7 +24,7 @@ const dispatch = useDispatch();
                 </Offcanvas.Body>
             </Offcanvas>
         </div>
-        
+
     );
 };
 

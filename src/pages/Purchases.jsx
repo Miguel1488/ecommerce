@@ -6,10 +6,10 @@ import { getPurchasesThunk } from '../store/slices/purchases.slice';
 const Purchases = () => {
     
     const purchases = useSelector(state => state.purchases);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getPurchasesThunk());
+    useEffect(() =>{
+        dispatch(getPurchasesThunk())
 
     }, [])
 console.log(purchases)
@@ -20,7 +20,7 @@ console.log(purchases)
             <h1>hello</h1>
             <ul>
                 {purchases.map(purchases =>(
-                    <li>{purchases.products.title}</li>
+                    <li>{purchases.products.id}</li>
                 ))}
             </ul>
         </div>

@@ -9,7 +9,7 @@ export const purchasesSlice = createSlice({
     reducers: {
         setPurchases: (state, action) => {
             const purchases = action.payload;
-            return purchases;
+            return purchases
         }
 
     }
