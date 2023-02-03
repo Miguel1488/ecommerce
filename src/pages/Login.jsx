@@ -33,8 +33,8 @@ const Login = () => {
 
             <h1>Welcome! Enter your email and password to continue</h1>
             <div><h4> email: maev_mana@hotmail.com</h4> </div>
-               <div><h4>password: 12345</h4></div> 
-          
+            <div><h4>password: 12345</h4></div>
+
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -42,6 +42,7 @@ const Login = () => {
                     type="email"
                     placeholder="Enter email"
                     {...register("email")}
+
                 />
                 <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
