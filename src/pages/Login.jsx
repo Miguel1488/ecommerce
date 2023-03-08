@@ -32,8 +32,8 @@ const Login = () => {
         <Form onSubmit={handleSubmit(submit)}>
 
             <h1>Welcome! Enter your email and password to continue</h1>
-            <div><h4> email: maev_mana@hotmail.com</h4> </div>
-            <div><h4>password: 12345</h4></div>
+            <div><h4> email: john@gmail.com</h4> </div>
+            <div><h4>password: 1234</h4></div>
 
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
